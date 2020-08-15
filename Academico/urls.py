@@ -1,7 +1,7 @@
-"""Academico URL Configuration
+"""proyectomanual URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/3.1/topics/http/urls/
+    https://docs.djangoproject.com/en/3.0/topics/http/urls/
 Examples:
 Function views
     1. Add an import:  from my_app import views
@@ -15,7 +15,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from core import views
 
 urlpatterns = [
+    path('', views.home , name="home"),
+    path('/about', views.about , name="acerca"),
+    path('/contact', views.contact , name="contacto"),
+    path('/portfolio', views.portfolio , name="portafolio"),
+    path('/login', views.login , name="login"),
+    path('/correo', views.correo , name="correo"),
+    path('/formulario', views.crear_docente.as_view(), name="formulario"),
+    path('/consulta', views.lista_docente.as_view(), name="consulta"),
+    path('/editar_docente/<int:pk>', views.update_docente.as_view(), name="editar"),
+    path('/eliminar_docente/<int:pk>', views.delete_docente.as_view(), name="eliminar"),
     path('admin/', admin.site.urls),
 ]
