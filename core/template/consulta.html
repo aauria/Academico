@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <title>Consulta_Profesores</title>
+</head>
+<body>
+<h1 align="center" class="text-white-50">LISTADO DOCENTES</h1>
+<table border="2" class="table table-hover" align="center">
+    <thead style="font-family: 'Century Gothic' ">
+    <tr>
+       <th >Nombre</th>
+       <th >Apellido</th>
+       <th >Edad</th>
+       <th >Email</th>
+       <th>Sexo</th>
+       <th>Titulo_Profesion</th>
+       <th>Cedula</th>
+       <th>Curso_Asignado</th>
+       <th>Opcion</th>
+    </tr>
+    </thead>
+    <tbody>
+        {% for reporte in object_list %}
+            <tr>
+            <td>{{ reporte.nombre }}</td>
+            <td>{{ reporte.apellido }}</td>
+            <td>{{ reporte.edad }}</td>
+            <td>{{ reporte.email }}</td>
+            <td>{{ reporte.sexo }}</td>
+            <td>{{ reporte.titulo_Profesion }}</td>
+            <td>{{ reporte.cedula }}</td>
+            <td>{{ reporte.curso_asignado }}</td>
+            <td><a href="{% url 'editar' reporte.id%}">EDITAR</a>            <a href="{% url 'eliminar' reporte.id%}">ELIMINAR</a></td>
+            </tr>
+
+        {%endfor%}
+    </tbody>
+
+</table>
+<a class="nav-link" href="{% url 'home' %}">REGRESAR</a>
+</body>
+</html>

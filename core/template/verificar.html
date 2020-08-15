@@ -1,0 +1,6 @@
+<form method="post">
+  {% csrf_token %}
+  <h1> Desea Eliminar Docente {{ object.apellido }} {{ object.nombre }}?</h1>
+  <button type="submit">Confirmar</button>
+  <a href="{% url 'consulta' %}" >Cancelar</a>
+</form>
