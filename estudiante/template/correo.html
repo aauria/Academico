@@ -1,0 +1,32 @@
+<!doctype html>
+<!--[if lte IE 9]>
+<html lang="en" class="oldie">
+<![endif]-->
+<!--[if gt IE 9]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Correo</title>
+  <link rel="stylesheet" media="all" href="../static/css/correo_style.css" />
+</head>
+<body>
+<section id="contact">
+	<div class="sectionheader">	<h1>CONTACTO</h1></div>
+	<article>
+	<p>PUEDE DARNOS SUGERENCIAS PARA MEJORAR. SU OPINION ES MUY IMPORTANTE . NOS COMUNICAREMOS A LA BREVEDAD POSIBLE.</p>
+		
+			<label for="checkcontact" class="contactbutton"><div class="mail"></div></label><input id="checkcontact" type="checkbox">
+	
+			<form action="" method="post" class="contactform">
+				<p class="input_wrapper"><input type="text" name="contact_nom" value=""  id ="contact_nom"><label for="contact_nom">NAME</label></p>
+				<p class="input_wrapper"><input type="text" name="contact_email" value=""  id ="contact_email"><label for="contact_email">EMAIL</label></p>
+				<p class="input_wrapper"><input type="text" name="contact_sujet" value=""  id ="contact_sujet"><label for="contact_sujet">SUBJECT</label></p>
+				<p class="textarea_wrapper"><textarea name="contact_message" id="contact_message"></textarea></p>
+				<p class="submit_wrapper"><input type="submit" value="ENVOYER"></p>			
+			</form>
+	</article>
+</section>
+</body>
+</html>

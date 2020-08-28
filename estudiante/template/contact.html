@@ -1,0 +1,13 @@
+{% extends "index.html" %}
+ {% block title %} Contacto {% endblock title %}
+
+{% block background %}{% load static %}{% static 'img/logo.png' %}{% endblock %}
+
+{% block headers %}  <h1> Un Placer Servirles </h1>
+    <span class="subheading">   </span> {% endblock %}
+
+
+{% block content %}
+    <h2> Contacto </h2>
+    <a class="nav-link" href="{% url 'correo' %}">Correo</a>
+{% endblock %}

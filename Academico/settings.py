@@ -37,7 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'core'
+    'core',
+    'estudiante',
+    'materia',
+    'nota'
 ]
 
 MIDDLEWARE = [
@@ -56,7 +59,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [os.path.join(BASE_DIR,'core/template')],
-        'APP_DIRS': True,
+        'APP_DIRS': [os.path.join('../estudiante/template')],
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
