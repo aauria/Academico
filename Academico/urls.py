@@ -14,18 +14,21 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from django.conf.urls import url
 from django.urls import path,include
+from django.contrib.auth.urls import views as login
 from core import views
 
 
 urlpatterns = [
-    path('', views.login , name="login"),
+    path('', login.LoginView.as_view(template_name='login2.html')),
     path('estudiante/',include('estudiante.urls')),
-    path('/inicio', views.home , name="home"),
-    path('/correo', views.correo , name="correo"),
-    path('/formulario', views.crear_docente.as_view(), name="formulario"),
-    path('/consulta', views.lista_docente.as_view(), name="consulta"),
-    path('/editar_docente/<int:pk>', views.update_docente.as_view(), name="editar"),
-    path('/eliminar_docente/<int:pk>', views.delete_docente.as_view(), name="eliminar"),
+    url('usuario/', include('usuario.urls')),
+    path('inicio/', views.home , name="home"),
+    path('correo/', views.correo , name="correo"),
+    path('formulario/', views.crear_docente.as_view(), name="formulario"),
+    path('consulta/', views.lista_docente.as_view(), name="consulta"),
+    path('editar_docente/<int:pk>', views.update_docente.as_view(), name="editar"),
+    path('eliminar_docente/<int:pk>', views.delete_docente.as_view(), name="eliminar"),
     path('admin/', admin.site.urls),
 ]

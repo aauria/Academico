@@ -1,4 +1,3 @@
-from django.shortcuts import render,redirect
 from django.urls import reverse_lazy
 from .models import Estudiante
 from .form import Estudianteform
@@ -6,14 +5,6 @@ from django.views.generic import ListView,CreateView,DeleteView,UpdateView
 
 
 # relaciona la parte vista con el template home.html
-def home(request, plantilla="home.html"):
-    return render(request, plantilla);
-def index(request, plantilla="index.html"):
-    return render(request, plantilla);
-def login(request, plantilla="login.html"):
-    return render(request, plantilla);
-def correo(request, plantilla="correo.html"):
-    return render(request, plantilla);
 
 class lista_estudiante(ListView):
     model = Estudiante
