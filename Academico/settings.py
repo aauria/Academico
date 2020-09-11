@@ -38,10 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'core',
-    'estudiante',
-    'materia',
-    'nota',
+    'core.apps.CoreConfig',
+    'estudiante.apps.EstudianteConfig',
+    'materia.apps.MateriaConfig',
+    'curso.apps.CursoConfig',
+    'nota.apps.NotaConfig',
     'usuario',
 ]
 
@@ -61,7 +62,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [os.path.join(BASE_DIR,'core/template')],
-        'APP_DIRS': [os.path.join('../estudiante/template')],
+        'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',

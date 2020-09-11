@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <title>Consulta_Notas</title>
+</head>
+<body>
+<h1 align="center" class="text-white-50">LISTADO NOTAS</h1>
+<table border="2" class="table table-hover" align="center">
+    <thead style="font-family: 'Century Gothic' ">
+    <tr>
+       <th >MATERIA</th>
+       <th >ESTUDIANTE</th>
+       <th >DOCENTE</th>
+       <th >CURSO</th>
+       <th>NOTA 1</th>
+       <th>NOTA 2</th>
+       <th>NOTA 3</th>
+       <th>Opcion</th>
+    </tr>
+    </thead>
+    <tbody>
+        {% for reporte in object_list %}
+            <tr>
+            <td>{{ reporte.Materia.nombre }}</td>
+            <td>{{ reporte.Estudiante.nombre }} {{ reporte.Estudiante.apellido }}</td>
+            <td>{{ reporte.Docente.nombre }}  {{ reporte.Docente.apellido }}</td>
+            <td>{{ reporte.Curso.nivel}} {{ reporte.Curso.paralelo }}</td>
+            <td>{{ reporte.nota1 }}</td>
+            <td>{{ reporte.nota2 }}</td>
+            <td>{{ reporte.nota3 }}</td>
+            <td><a href="{% url 'editar_nota' reporte.id%}">EDITAR</a>            <a href="{% url 'eliminar_nota' reporte.id%}">ELIMINAR</a></td>
+            </tr>
+
+        {%endfor%}
+    </tbody>
+
+</table>
+<a class="nav-link" href="{% url 'home' %}">REGRESAR</a>
+</body>
+</html>

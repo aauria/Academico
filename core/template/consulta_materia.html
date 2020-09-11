@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <title>Consulta_Materia</title>
+</head>
+<body>
+<h1 align="center" class="text-white-50">LISTADO MATERIA</h1>
+<table border="2" class="table table-hover" align="center">
+    <thead style="font-family: 'Century Gothic' ">
+    <tr>
+       <th >NOMBRE</th>
+       <th>Opcion</th>
+    </tr>
+    </thead>
+    <tbody>
+        {% for materia in object_list %}
+            <tr>
+            <td>{{ materia.nombre }}</td>
+            <td><a href="{% url 'editar_materia' materia.id%}">EDITAR</a>            <a href="{% url 'eliminar_materia' materia.id%}">ELIMINAR</a></td>
+            </tr>
+
+        {%endfor%}
+    </tbody>
+
+</table>
+<a class="nav-link" href="{% url 'home' %}">REGRESAR</a>
+</body>
+</html>

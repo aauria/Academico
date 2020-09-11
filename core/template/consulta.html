@@ -18,7 +18,6 @@
        <th>Sexo</th>
        <th>Titulo_Profesion</th>
        <th>Cedula</th>
-       <th>Curso_Asignado</th>
        <th>Opcion</th>
     </tr>
     </thead>
@@ -32,7 +31,6 @@
             <td>{{ reporte.sexo }}</td>
             <td>{{ reporte.titulo_Profesion }}</td>
             <td>{{ reporte.cedula }}</td>
-            <td>{{ reporte.curso_asignado }}</td>
             <td><a href="{% url 'editar' reporte.id%}">EDITAR</a>            <a href="{% url 'eliminar' reporte.id%}">ELIMINAR</a></td>
             </tr>
 

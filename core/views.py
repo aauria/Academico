@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from django.urls import reverse_lazy
-from .models import Docente
-from .form import Docenteform
+from .models import Docente,CursoDocente
+from .form import Docenteform,CursoDocenteForm
 from django.views.generic import ListView,CreateView,DeleteView,UpdateView
 
 
@@ -36,5 +36,24 @@ class delete_docente(DeleteView):
     template_name = 'verificar.html'
     success_url = reverse_lazy('consulta')
 
+class lista_docentecurso(ListView):
+    model = CursoDocente
+    template_name = 'consulta_cursodocente.html'
 
+class crear_docentecurso(CreateView):
+    model = CursoDocente
+    form_class = CursoDocenteForm
+    template_name = 'formulario_cursodocente.html'
+    success_url = reverse_lazy('home')
+
+class update_docentecurso(UpdateView):
+    model = CursoDocente
+    form_class = CursoDocenteForm
+    template_name = 'formulario_cursodocente.html'
+    success_url = reverse_lazy('consulta_cursodocente')
+
+class delete_docentecurso(DeleteView):
+    model = CursoDocente
+    template_name = 'verificar_cursodocente.html'
+    success_url = reverse_lazy('consulta_cursodocente')
 # Create your views here.

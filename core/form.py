@@ -1,5 +1,5 @@
 from django import forms
-from .models import Docente
+from .models import Docente,CursoDocente
 
 class Docenteform(forms.ModelForm):
     class Meta:
@@ -10,9 +10,8 @@ class Docenteform(forms.ModelForm):
             'edad',
             'email',
             'sexo',
-            'cedula',
-            'curso_asignado',
             'titulo_Profesion',
+            'cedula',
         ]
         labels={
             'nombre':'Nombre',
@@ -20,9 +19,8 @@ class Docenteform(forms.ModelForm):
             'edad':'Edad',
             'email':'Email',
             'sexo':'Sexo',
-            'cedula':'Cedula',
-            'curso_asignado':'Curso',
             'titulo_Profesion':'Profesión',
+            'cedula': 'Cedula',
         }
         widgets={
             'nombre':forms.TextInput(attrs={'class':'table-active',}),
@@ -30,8 +28,22 @@ class Docenteform(forms.ModelForm):
             'edad':forms.TextInput(attrs={'class':'table-active'}),
             'email':forms.TextInput(attrs={'class':'table-active'}),
             'sexo':forms.Select(attrs={'class':'form-group'}),
-            'cedula':forms.TextInput(attrs={'class':'table-active'}),
-            'curso_asignado':forms.TextInput(attrs={'class':'table-active'}),
             'titulo_Profesion':forms.TextInput(attrs={'class':'table-active'}),
+            'cedula': forms.TextInput(attrs={'class': 'table-active'}),
         }
 
+class CursoDocenteForm(forms.ModelForm):
+        class Meta:
+            model =CursoDocente
+            fields=[
+                'curso',
+                'Docente',
+            ]
+            labels={
+                'curso':'CURSO:',
+                'Docente':'DOCENTE:',
+            }
+            widgets={
+                'curso': forms.Select(attrs={'class': 'form-control'}),
+                'Docente': forms.Select(attrs={'class': 'form-control'}),
+            }

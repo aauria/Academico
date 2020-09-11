@@ -11,27 +11,19 @@
 <table border="2" class="table table-hover" align="center">
     <thead style="font-family: 'Century Gothic' ">
     <tr>
-       <th >Nombre</th>
-       <th >Apellido</th>
-       <th >Edad</th>
-       <th >Email</th>
-       <th>Sexo</th>
-       <th>Cedula</th>
-       <th>Curso_Asignado</th>
+       <th >MATERIA</th>
+       <th >ESTUDIANTE</th>
+       <th >DOCENTE</th>
        <th>Opcion</th>
     </tr>
     </thead>
     <tbody>
         {% for reporte in object_list %}
             <tr>
-            <td>{{ reporte.nombre }}</td>
-            <td>{{ reporte.apellido }}</td>
-            <td>{{ reporte.edad }}</td>
-            <td>{{ reporte.email }}</td>
-            <td>{{ reporte.sexo }}</td>
-            <td>{{ reporte.cedula }}</td>
-            <td>{{ reporte.curso.nivel }} {{ reporte.curso.paralelo }}</td>
-            <td><a href="{% url 'editar_estudiante' reporte.id%}">EDITAR</a>            <a href="{% url 'eliminar_estudiante' reporte.id%}">ELIMINAR</a></td>
+            <td>{{ reporte.materia.nombre }}</td>
+            <td>{{ reporte.estudiante.nombre }} {{ reporte.estudiante.apellido }}</td>
+            <td>{{ reporte.docente.nombre}} {{ reporte.docente.apellido }}</td>
+            <td><a href="{% url 'editar_estudiante_doc_mat' reporte.id%}">EDITAR</a>            <a href="{% url 'eliminar_estudiante_doc_mat' reporte.id%}">ELIMINAR</a></td>
             </tr>
 
         {%endfor%}
