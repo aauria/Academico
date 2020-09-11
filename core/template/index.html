@@ -38,28 +38,38 @@
                     <a class="nav-link" href="{% url 'home' %}">SISTEMA ACADEMICO</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="{% url 'home' %}" role="button" aria-haspopup="true" aria-expanded="false">ADMINISTRADOR</a>
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="{% url 'home' %}" role="button" aria-haspopup="true" aria-expanded="false">INGRESOS</a>
                         <div class="dropdown-menu">
-                        <a class="dropdown-item" href="{% url 'consulta'  %}">CONSULTA_PROFESORES</a>
-                        <a class="dropdown-item" href="{% url 'formulario' %}">INGRESAR_PROFESORES</a>
-                        <a class="dropdown-item" href="{% url 'consulta_estudiante' %}">CONSULTAR_ESTUDIANTES</a>
+                        <a class="dropdown-item" href="{% url 'formulario'  %}">INGRESAR_PROFESORES</a>
+                        <a class="dropdown-item" href="{% url 'formulario_curso' %}">INGRESAR_CURSO</a>
+                        <a class="dropdown-item" href="{% url 'formulario_docentecurso' %}">INGRESAR_PROFESORES-CURSOS</a>
                         <a class="dropdown-item" href="{% url 'formulario_estudiante' %}">INGRESAR_ESTUDIANTES</a>
+                        <a class="dropdown-item" href="{% url 'formulario_materia' %}">INGRESAR_MATERIA</a>
+                        <a class="dropdown-item" href="{% url 'formulario_estudiante_doc_mat' %}">INGRESAR_PROFESOR-ESTUDIANTE-MATERIA</a>
+                        <a class="dropdown-item" href="{% url 'formulario_nota' %}">INGRESAR_NOTAS</a>
                         <a class="dropdown-item" href="{% url 'crear_usuario' %}">CREAR_USUARIO</a>
                         </div>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="{% url 'home' %}" role="button" aria-haspopup="true" aria-expanded="false">DOCENTES</a>
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="{% url 'home' %}" role="button" aria-haspopup="true" aria-expanded="false">CONSULTAS</a>
                         <div class="dropdown-menu">
-                        <a class="dropdown-item" href="">CONSULTA_NOTAS</a>
-                        <a class="dropdown-item" href="">INGRESAR_NOTAS</a>
+                        <a class="dropdown-item" href="{% url 'consulta' %}">CONSULTA_PROFESORES</a>
+                        <a class="dropdown-item" href="{% url 'consulta_estudiante' %}">CONSULTA_ESTUDIANTE</a>
+                        <a class="dropdown-item" href="{% url 'consulta_materia' %}">CONSULTA_MATERIA</a>
+                        <a class="dropdown-item" href="{% url 'consulta_nota' %}">CONSULTA_NOTAS</a>
+                        <a class="dropdown-item" href="{% url 'consulta_cursodocente' %}">CONSULTA_PROFESORES-CURSOS</a>
+                        <a class="dropdown-item" href="{% url 'consulta_estudiante_doc_mat' %}">CONSULTA_PROFESORES-ESTUDIANTES-MATERIA</a>
+                        <a class="dropdown-item" href="{% url 'consulta_curso' %}">CONSULTA_CURSO</a>
                         </div>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="{% url 'home' %}" role="button" aria-haspopup="true" aria-expanded="false">ESTUDIANTE</a>
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="{% url 'home' %}" role="button" aria-haspopup="true" aria-expanded="false">CONTACTO</a>
                         <div class="dropdown-menu">
-                        <a class="dropdown-item" href="">CONSULTA_NOTAS</a>
-                        <a class="dropdown-item" href="{% url 'correo' %}">CONTACTANOS</a>
+                        <a class="dropdown-item" href="{% url 'correo' %}">ESCRIBENOS</a>
                         </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'login' %}" >Salir Sistema </a>
                 </li>
             </ul>
         </div>

@@ -18,8 +18,7 @@ class Estudiante(models.Model):
     updated=models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return format(self.nombre,self.apellido)
-
+        return '%s %s' % (self.nombre, self.apellido)
 
 
 class EstudianteMateriaDocente(models.Model):

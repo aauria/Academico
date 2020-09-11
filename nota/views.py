@@ -7,7 +7,7 @@ from django.views.generic import ListView,CreateView,DeleteView,UpdateView
 
 class lista_notas(ListView):
     model = Notas
-    template_name = 'consulta_notas.html'
+    template_name = 'consulta_nota.html'
 
 class crear_notas(CreateView):
     model = Notas

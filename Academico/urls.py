@@ -21,7 +21,7 @@ from core import views
 
 
 urlpatterns = [
-    path('', login.LoginView.as_view(template_name='login2.html')),
+    path('', login.LoginView.as_view(template_name='login2.html'),name='login'),
     path('estudiante/',include('estudiante.urls')),
     url('nota/', include('nota.urls')),
     url('materia/', include('materia.urls')),
@@ -34,7 +34,7 @@ urlpatterns = [
     path('editar_docente/<int:pk>', views.update_docente.as_view(), name="editar"),
     path('eliminar_docente/<int:pk>', views.delete_docente.as_view(), name="eliminar"),
     path('formulario_docentecurso/', views.crear_docentecurso.as_view(), name="formulario_docentecurso"),
-    path('consulta_docentecurso/', views.lista_docentecurso.as_view(), name="consulta_docentecurso"),
+    path('consulta_docentecurso/', views.lista_docentecurso.as_view(), name="consulta_cursodocente"),
     path('editar_docentecurso/<int:pk>', views.update_docentecurso.as_view(), name="editar_docentecurso"),
     path('eliminar_docentecurso/<int:pk>', views.delete_docentecurso.as_view(), name="eliminar_docentecurso"),
     path('admin/', admin.site.urls),
