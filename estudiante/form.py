@@ -1,5 +1,5 @@
 from django import forms
-from .models import Estudiante ,EstudianteMateriaDocente
+from .models import Estudiante ,EstudianteMateriaDocente,EstudianteMateriaCurso
 
 class Estudianteform(forms.ModelForm):
     class Meta:
@@ -51,3 +51,23 @@ class EstudianteMateriaDocenteform(forms.ModelForm):
                 'estudiante':forms.Select(attrs={'class': 'form-control'}),
                 'docente':forms.Select(attrs={'class': 'form-control'}),
             }
+
+
+class EstudianteMateriaCursoform(forms.ModelForm):
+    class Meta:
+        model = EstudianteMateriaCurso
+        fields = [
+            'materia',
+            'estudiante',
+            'curso',
+        ]
+        labels = {
+            'materia': 'MATERIA',
+            'estudiante': 'ESTUDIANTE',
+            'curso': 'CURSO',
+        }
+        widgets = {
+            'materia': forms.Select(attrs={'class': 'form-control'}),
+            'estudiante': forms.Select(attrs={'class': 'form-control'}),
+            'curso': forms.Select(attrs={'class': 'form-control'}),
+        }

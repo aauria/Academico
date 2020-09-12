@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <title>Consulta_Estudiantes</title>
+</head>
+<body>
+<h1 align="center" class="text-white-50">LISTADO ESTUDIANTE-DOCENTE-MATERIA</h1>
+<table border="2" class="table table-hover" align="center">
+    <thead style="font-family: 'Century Gothic' ">
+    <tr>
+       <th >ESTUDIANTE</th>
+       <th >MATERIA</th>
+       <th >CURSO</th>
+       <th>Opcion</th>
+    </tr>
+    </thead>
+    <tbody>
+        {% for reporte in object_list %}
+            <tr>
+            <td>{{ reporte.estudiante.nombre }} {{ reporte.estudiante.apellido }}</td>
+            <td>{{ reporte.materia.nombre }}</td>
+            <td>{{ reporte.curso.nivel}} {{ reporte.curso.paralelo }}</td>
+            <td><a href="{% url 'editar_estudiante_mat_curso' reporte.id%}">EDITAR</a>            <a href="{% url 'eliminar_estudiante_mat_curso' reporte.id%}">ELIMINAR</a></td>
+            </tr>
+
+        {%endfor%}
+    </tbody>
+
+</table>
+<a class="nav-link" href="{% url 'home' %}">REGRESAR</a>
+</body>
+</html>

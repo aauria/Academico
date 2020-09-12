@@ -1,0 +1,15 @@
+{% extends "index.html" %}
+{% load static %}
+<title>  {% block title %}Ingreso_Estudiante-Materia-Curso{% endblock title %} | Sistema de Gestion </title>
+<link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+{% block cabecera %}<h3 style="text-align: center">INGRESO DE DATOS</h3>{% endblock %}
+{% block navegacion %}{% endblock %}
+{% block content %}
+   <form  method="post">
+   {% csrf_token %}
+    {{ form.as_p }}
+
+       <button type="submit" class="btn btn-primary btn-lg,accordion">CREAR o MODIFICAR</button>
+
+   </form>
+{% endblock %}

@@ -26,6 +26,13 @@ class EstudianteMateriaDocente(models.Model):
     estudiante=models.ForeignKey(Estudiante,on_delete=models.CASCADE)
     docente=models.ForeignKey(Docente,on_delete=models.CASCADE)
 
+class EstudianteMateriaCurso(models.Model):
+    materia=models.ForeignKey(Materia,on_delete=models.CASCADE)
+    estudiante=models.ForeignKey(Estudiante,on_delete=models.CASCADE)
+    curso=models.ForeignKey(Curso,on_delete=models.CASCADE)
+
+
+
 
 
 

@@ -12,5 +12,9 @@ urlpatterns = [
     path('consulta1/', views.lista_estudiantedocentemateria.as_view(), name="consulta_estudiante_doc_mat"),
     path('editar1/<int:pk>', views.update_estudiantedocentemateria.as_view(), name="editar_estudiante_doc_mat"),
     path('eliminar1/<int:pk>', views.delete_estudiantedocentemateria.as_view(), name="eliminar_estudiante_doc_mat"),
+    path('formulario2/', views.crear_estudiantemateriacurso.as_view(), name="formulario_estudiante_mat_curso"),
+    path('consulta2/', views.lista_estudiantemateriacurso.as_view(), name="consulta_estudiante_mat_curso"),
+    path('editar2/<int:pk>', views.update_estudiantemateriacurso.as_view(), name="editar_estudiante_mat_curso"),
+    path('eliminar2/<int:pk>', views.delete_estudiantemateriacurso.as_view(), name="eliminar_estudiante_mat_curso"),
     path('admin/', admin.site.urls),
 ]

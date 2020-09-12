@@ -1,6 +1,6 @@
 from django.urls import reverse_lazy
-from .models import Estudiante,EstudianteMateriaDocente
-from .form import Estudianteform,EstudianteMateriaDocenteform
+from .models import Estudiante,EstudianteMateriaDocente,EstudianteMateriaCurso
+from .form import Estudianteform,EstudianteMateriaDocenteform,EstudianteMateriaCursoform
 from django.views.generic import ListView,CreateView,DeleteView,UpdateView
 
 
@@ -50,3 +50,23 @@ class delete_estudiantedocentemateria(DeleteView):
     template_name = 'verificar_estudiantedocentemateria.html'
     success_url = reverse_lazy('consulta_estudiante_doc_mat')
 
+class lista_estudiantemateriacurso(ListView):
+    model = EstudianteMateriaCurso
+    template_name = 'consulta_estudiantemateriacurso.html'
+
+class crear_estudiantemateriacurso(CreateView):
+    model = EstudianteMateriaCurso
+    form_class = EstudianteMateriaCursoform
+    template_name = 'formulario_estudiantemateriacurso.html'
+    success_url = reverse_lazy('home')
+
+class update_estudiantemateriacurso(UpdateView):
+    model = EstudianteMateriaCurso
+    form_class = EstudianteMateriaCursoform
+    template_name = 'formulario_estudiantemateriacurso.html'
+    success_url = reverse_lazy('consulta_estudiante_mat_curso')
+
+class delete_estudiantemateriacurso(DeleteView):
+    model = EstudianteMateriaCurso
+    template_name = 'verificar_estudiantemateriacurso.html'
+    success_url = reverse_lazy('consulta_estudiante_mat_curso')
