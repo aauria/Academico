@@ -8,7 +8,8 @@
 </head>
 <body>
 <h1 align="center" class="text-white-50">LISTADO NOTAS</h1>
-<table border="2" class="table table-hover" align="center">
+<div class="container">
+<table class="table table-striped" >
     <thead style="font-family: 'Century Gothic' ">
     <tr>
        <th >MATERIA</th>
@@ -18,6 +19,7 @@
        <th>NOTA 1</th>
        <th>NOTA 2</th>
        <th>NOTA 3</th>
+       <th>PROMEDIO</th>
        <th>Opcion</th>
     </tr>
     </thead>
@@ -31,6 +33,7 @@
             <td>{{ reporte.nota1 }}</td>
             <td>{{ reporte.nota2 }}</td>
             <td>{{ reporte.nota3 }}</td>
+            <td>{{ reporte.promedio }}</td>
             <td><a href="{% url 'editar_nota' reporte.id%}">EDITAR</a>            <a href="{% url 'eliminar_nota' reporte.id%}">ELIMINAR</a></td>
             </tr>
 
@@ -38,6 +41,20 @@
     </tbody>
 
 </table>
-<a class="nav-link" href="{% url 'home' %}">REGRESAR</a>
+</div>
+    <section class="text-center">
+        <div>
+         <p>
+            <a href="{% url 'home' %}"  class="btn btn-primary my-2">Inicio</a>
+            <a href="{% url 'formulario_nota' %}" class="btn btn-primary my-2">Agregar Notas</a>
+         </p>
+        </div>
+    </section>
+
+
+
+
+&nbsp;
+
 </body>
 </html>

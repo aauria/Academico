@@ -3,6 +3,7 @@ from django.urls import reverse_lazy
 from .models import Docente,CursoDocente
 from .form import Docenteform,CursoDocenteForm
 from django.views.generic import ListView,CreateView,DeleteView,UpdateView
+from django.contrib.auth.mixins import PermissionRequiredMixin
 
 
 # relaciona la parte vista con el template home.html
@@ -15,45 +16,53 @@ def login(request, plantilla="login.html"):
 def correo(request, plantilla="correo.html"):
     return render(request, plantilla);
 
-class lista_docente(ListView):
+class lista_docente(PermissionRequiredMixin,ListView):
     model = Docente
-    template_name = 'consulta.html'
+    template_name = 'docente/consulta.html'
+    permission_required = 'core.view_docente'
 
-class crear_docente(CreateView):
-    model = Docente
-    form_class = Docenteform
-    template_name = 'formulario.html'
-    success_url = reverse_lazy('home')
-
-class update_docente(UpdateView):
+class crear_docente(PermissionRequiredMixin,CreateView):
     model = Docente
     form_class = Docenteform
-    template_name = 'formulario.html'
+    template_name = 'docente/formulario.html'
     success_url = reverse_lazy('consulta')
+    permission_required = 'core.add_docente'
 
-class delete_docente(DeleteView):
+class update_docente(PermissionRequiredMixin,UpdateView):
     model = Docente
-    template_name = 'verificar.html'
+    form_class = Docenteform
+    template_name = 'docente/formulario.html'
     success_url = reverse_lazy('consulta')
+    permission_required = 'core.change_docente'
 
-class lista_docentecurso(ListView):
+class delete_docente(PermissionRequiredMixin,DeleteView):
+    model = Docente
+    template_name = 'docente/verificar.html'
+    success_url = reverse_lazy('consulta')
+    permission_required = 'core.delete_docente'
+
+class lista_docentecurso(PermissionRequiredMixin,ListView):
     model = CursoDocente
-    template_name = 'consulta_cursodocente.html'
+    template_name = 'curso/consulta_cursodocente.html'
+    permission_required = 'core.view_cursodocente'
 
-class crear_docentecurso(CreateView):
+class crear_docentecurso(PermissionRequiredMixin,CreateView):
     model = CursoDocente
     form_class = CursoDocenteForm
-    template_name = 'formulario_cursodocente.html'
-    success_url = reverse_lazy('home')
+    template_name = 'curso/formulario_cursodocente.html'
+    success_url = reverse_lazy('consulta_cursodocente')
+    permission_required = 'core.add_cursodocente'
 
-class update_docentecurso(UpdateView):
+class update_docentecurso(PermissionRequiredMixin,UpdateView):
     model = CursoDocente
     form_class = CursoDocenteForm
-    template_name = 'formulario_cursodocente.html'
+    template_name = 'curso/formulario_cursodocente.html'
     success_url = reverse_lazy('consulta_cursodocente')
+    permission_required = 'core.change_cursodocente'
 
-class delete_docentecurso(DeleteView):
+class delete_docentecurso(PermissionRequiredMixin,DeleteView):
     model = CursoDocente
-    template_name = 'verificar_cursodocente.html'
+    template_name = 'curso/verificar_cursodocente.html'
     success_url = reverse_lazy('consulta_cursodocente')
+    permission_required = 'core.delete_cursodocente'
 # Create your views here.

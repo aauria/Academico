@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Usuarios</title>
+    {% load static %}
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+</head>
+<body>
+    <h2 align="center"> Usuarios </h2>
+<table class="table table-striped" >
+    <thead>
+        <tr>
+            <th>ID Usuario</th>
+            <th>User_Name</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Correo</th>
+            <th>Grupo</th>
+            <th>Opcion</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for User in user_list %}
+            <tr>
+                <td>{{ User.id }}</td>
+                <td>{{ User.username}}</td>
+                <td>{{ User.first_name }}</td>
+                <td>{{ User.last_name }}</td>
+                <td>{{ User.email }}</td>
+                <td>
+                    {% if User.groups %}
+                        {% for grupo in User.groups.all %}
+                            {{ grupo }}
+                        {% endfor %}
+                    {% endif %}
+
+                </td>
+                <td>
+                    <a href="{% url 'editar_usuario' User.id  %}"><span class="glyphicon glyphicon-pencil" >Editar</span></a>
+                                      <a style="background: #bf2718" href="{% url 'eliminar_usuario' User.id %}">Eliminar</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<br>
+<br>
+
+
+    <div class="row">
+        <div class="col-md-4 offset-1">
+        <a href="/usuario/Registra" class="btn btn-primary">Añadir Nuevo Usuario</a>
+        </div>
+        <div class="col-md-4">
+        <a href="{% url 'home' %}" class="btn btn-primary">Regresar al inicio</a>
+        </div>
+    </div>
+
+
+
+
+</body>
+</html>

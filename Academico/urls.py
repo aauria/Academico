@@ -22,6 +22,7 @@ from core import views
 
 urlpatterns = [
     path('', login.LoginView.as_view(template_name='login2.html'),name='login'),
+    path('logout', login.LogoutView.as_view(template_name='login2.html'), name='salir'),
     path('estudiante/',include('estudiante.urls')),
     url('nota/', include('nota.urls')),
     url('materia/', include('materia.urls')),

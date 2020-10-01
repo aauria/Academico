@@ -32,6 +32,8 @@ class Docenteform(forms.ModelForm):
             'cedula': forms.TextInput(attrs={'class': 'table-active'}),
         }
 
+    
+
 class CursoDocenteForm(forms.ModelForm):
         class Meta:
             model =CursoDocente

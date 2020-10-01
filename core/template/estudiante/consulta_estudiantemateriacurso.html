@@ -8,7 +8,8 @@
 </head>
 <body>
 <h1 align="center" class="text-white-50">LISTADO ESTUDIANTE-DOCENTE-MATERIA</h1>
-<table border="2" class="table table-hover" align="center">
+<div class="container">
+<table class="table table-striped">
     <thead style="font-family: 'Century Gothic' ">
     <tr>
        <th >ESTUDIANTE</th>
@@ -30,6 +31,15 @@
     </tbody>
 
 </table>
-<a class="nav-link" href="{% url 'home' %}">REGRESAR</a>
+</div>
+<section class="text-center">
+        <div>
+         <p>
+            <a href="{% url 'home' %}"  class="btn btn-primary my-2">Inicio</a>
+            <a href="{% url 'formulario_estudiante_mat_curso' %}" class="btn btn-primary my-2">Agregar </a>
+         </p>
+        </div>
+    </section>
+
 </body>
 </html>

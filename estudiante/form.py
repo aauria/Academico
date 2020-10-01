@@ -38,18 +38,18 @@ class EstudianteMateriaDocenteform(forms.ModelForm):
             model=EstudianteMateriaDocente
             fields=[
                 'materia',
-                'estudiante',
                 'docente',
+                'estudiante',
             ]
             labels={
                 'materia':'MATERIA',
-                'estudiante':'ESTUDIANTE',
                 'docente':'DOCENTE',
+                'estudiante': 'ESTUDIANTE',
             }
             widgets={
                 'materia':forms.Select(attrs={'class': 'form-control'}),
-                'estudiante':forms.Select(attrs={'class': 'form-control'}),
                 'docente':forms.Select(attrs={'class': 'form-control'}),
+                'estudiante': forms.Select(attrs={'class': 'form-control'}),
             }
 
 

@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>  {% block title %}   {% endblock title %} | Sistema de Gestion </title>
-
+    {% block estilos %}
     <!-- Estilos y fuentes del template  -->
     {% load static %}
     <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
@@ -17,7 +17,7 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
           rel='stylesheet' type='text/css'>
     <link href="{% static 'css/clean-blog.min.css' %}" rel="stylesheet">
-
+    {% endblock %}
 </head>
 
 <body>
@@ -37,6 +37,14 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'home' %}">SISTEMA ACADEMICO</a>
                 </li>
+                <a class="navbar-brand">{% if user %}
+                     <span class="badge badge-primary">{{ request.user.username }}</span>
+
+                        {% for grupo in request.user.groups.all %}
+                         <span class="badge badge-primary">{{ grupo }}</span>
+                        {% endfor %}
+
+                    {% endif %}</a>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="{% url 'home' %}" role="button" aria-haspopup="true" aria-expanded="false">INGRESOS</a>
                         <div class="dropdown-menu">
@@ -48,7 +56,8 @@
                         <a class="dropdown-item" href="{% url 'formulario_estudiante_doc_mat' %}">INGRESAR_PROFESOR-ESTUDIANTE-MATERIA</a>
                         <a class="dropdown-item" href="{% url 'formulario_nota' %}">INGRESAR_NOTAS</a>
                         <a class="dropdown-item" href="{% url 'formulario_estudiante_mat_curso' %}">INGRESAR_ESTUDIANTE-MATERIA-CURSO</a>
-                        <a class="dropdown-item" href="{% url 'crear_usuario' %}">CREAR_USUARIO</a>
+                        <a class="dropdown-item" href="{% url 'registro_usuario' %}">CREAR_USUARIO</a>
+                        <a class="dropdown-item" href="{% url 'registro_grupo' %}">CREAR_GRUPO</a>
                         </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -60,8 +69,10 @@
                         <a class="dropdown-item" href="{% url 'consulta_nota' %}">CONSULTA_NOTAS</a>
                         <a class="dropdown-item" href="{% url 'consulta_cursodocente' %}">CONSULTA_PROFESORES-CURSOS</a>
                         <a class="dropdown-item" href="{% url 'consulta_estudiante_doc_mat' %}">CONSULTA_PROFESORES-ESTUDIANTES-MATERIA</a>
-                        <a class="dropdown-item" href="{% url 'consulta_estudiante_mat_curso' %}">CONSULTA_PROFESORES-MATERIA-CURSO</a>
+                        <a class="dropdown-item" href="{% url 'consulta_estudiante_mat_curso' %}">CONSULTA_ESTUDIANTE-MATERIA-CURSO</a>
                         <a class="dropdown-item" href="{% url 'consulta_curso' %}">CONSULTA_CURSO</a>
+                        <a class="dropdown-item" href="{% url 'consulta_usuario' %}">CONSULTA_USUARIO</a>
+                        <a class="dropdown-item" href="{% url 'consulta_grupo' %}">CONSULTA_GRUPO</a>
                         </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -71,7 +82,7 @@
                         </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'login' %}" >Salir Sistema </a>
+                    <a class="nav-link" href="{% url 'salir' %}" >Salir Sistema </a>
                 </li>
             </ul>
         </div>

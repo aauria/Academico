@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Grupos</title>
+    {% load static %}
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+</head>
+<body>
+    <h2 align="center"> Grupos </h2>
+<table class="table table-striped" >
+    <thead>
+        <tr>
+            <th>ID Grupo</th>
+            <th>Nombre Grupo</th>
+            <th>Permisos</th>
+            <th>Opcion</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for grupo in group_list %}
+            <tr>
+                <td>{{ grupo.id }}</td>
+                <td>{{ grupo.name}}</td>
+                <td>
+                     {% if grupo.permissions %}
+                        {% for grupo in grupo.permissions.all %}
+                            {{ grupo }}
+                        {% endfor %}
+                    {% endif %}
+
+                </td>
+                </td>
+                <td>
+                    <a href="{% url 'editar_grupo' grupo.id  %}"><span class="glyphicon glyphicon-pencil" >Editar</span></a>
+                                      <a style="background: #bf2718" href="{% url 'eliminar_grupo' grupo.id %}">Eliminar</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<br>
+<br>
+
+
+    <div class="row">
+        <div class="col-md-4 offset-1">
+        <a href="/usuario/Grupo" class="btn btn-primary">Añadir Nuevo Grupo</a>
+        </div>
+        <div class="col-md-4">
+        <a href="{% url 'home' %}" class="btn btn-primary">Regresar al inicio</a>
+        </div>
+    </div>
+
+
+
+
+</body>
+</html>

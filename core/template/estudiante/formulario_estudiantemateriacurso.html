@@ -1,10 +1,11 @@
 {% extends "index.html" %}
 {% load static %}
-<title>  {% block title %}Ingreso_Curso-Docente{% endblock title %} | Sistema de Gestion </title>
-<link href="{% static 'vendor/bootstrap/css/bootstrap.css' %}" rel="stylesheet">
+<title>  {% block title %}Ingreso_Estudiante-Materia-Curso{% endblock title %} | Sistema de Gestion </title>
+<link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
 {% block cabecera %}<h3 style="text-align: center">INGRESO DE DATOS</h3>{% endblock %}
 {% block navegacion %}{% endblock %}
 {% block content %}
+    <div class="container">
    <form  method="post">
    {% csrf_token %}
     {{ form.as_p }}
@@ -12,4 +13,5 @@
        <button type="submit" class="btn btn-primary btn-lg,accordion">CREAR o MODIFICAR</button>
 
    </form>
+    </div>
 {% endblock %}

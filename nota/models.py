@@ -10,6 +10,13 @@ class Notas(models.Model):
     Estudiante=models.ForeignKey(Estudiante,on_delete=models.CASCADE)
     Docente=models.ForeignKey(Docente,on_delete=models.CASCADE)
     Curso=models.ForeignKey(Curso,on_delete=models.CASCADE)
-    nota1 = models.IntegerField(default=0)
-    nota2 = models.IntegerField(default=0)
-    nota3 = models.IntegerField(default=0)
+    nota1 = models.FloatField(default=0)
+    nota2 = models.FloatField(default=0)
+    nota3 = models.FloatField(default=0)
+    class Meta:
+        unique_together=["Materia","Estudiante","Docente","Curso"]
+
+    def promedio(self):
+        resultado=((self.nota1+self.nota2+self.nota3)/3)
+        return round(resultado,1)
+

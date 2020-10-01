@@ -1,0 +1,6 @@
+<form method="post">
+  {% csrf_token %}
+  <h1> Desea Eliminar Usuario {{ user.username }}?</h1>
+  <button type="submit">Confirmar</button>
+  <a href="{% url 'consulta_usuario' %}" >Cancelar</a>
+</form>
