@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>  {% block title %}   {% endblock title %} | Sistema de Gestion </title>
+    <title>  {% block title %}Academico{% endblock title %} | Sistema de Gestion </title>
     {% block estilos %}
     <!-- Estilos y fuentes del template  -->
     {% load static %}
@@ -46,39 +46,37 @@
 
                     {% endif %}</a>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="{% url 'home' %}" role="button" aria-haspopup="true" aria-expanded="false">INGRESOS</a>
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="{% url 'home' %}" role="button" aria-haspopup="true" aria-expanded="false">DOCENTE</a>
                         <div class="dropdown-menu">
-                        <a class="dropdown-item" href="{% url 'formulario'  %}">INGRESAR_PROFESORES</a>
-                        <a class="dropdown-item" href="{% url 'formulario_curso' %}">INGRESAR_CURSO</a>
-                        <a class="dropdown-item" href="{% url 'formulario_docentecurso' %}">INGRESAR_PROFESORES-CURSOS</a>
-                        <a class="dropdown-item" href="{% url 'formulario_estudiante' %}">INGRESAR_ESTUDIANTES</a>
-                        <a class="dropdown-item" href="{% url 'formulario_materia' %}">INGRESAR_MATERIA</a>
-                        <a class="dropdown-item" href="{% url 'formulario_estudiante_doc_mat' %}">INGRESAR_PROFESOR-ESTUDIANTE-MATERIA</a>
-                        <a class="dropdown-item" href="{% url 'formulario_nota' %}">INGRESAR_NOTAS</a>
-                        <a class="dropdown-item" href="{% url 'formulario_estudiante_mat_curso' %}">INGRESAR_ESTUDIANTE-MATERIA-CURSO</a>
-                        <a class="dropdown-item" href="{% url 'registro_usuario' %}">CREAR_USUARIO</a>
-                        <a class="dropdown-item" href="{% url 'registro_grupo' %}">CREAR_GRUPO</a>
+                        <a class="dropdown-item" href="{% url 'consulta' %}">CONSULTA_DOCENTE</a>
+                        <a class="dropdown-item" href="{% url 'consulta_cursodocente' %}">CONSULTA_DOCENTES-CURSOS</a>
+                        <a class="dropdown-item" href="{% url 'consulta_estudiante_doc_mat' %}">CONSULTA_MATERIA-DOCENTE-ESTUDIANTE</a>
                         </div>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="{% url 'home' %}" role="button" aria-haspopup="true" aria-expanded="false">CONSULTAS</a>
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="{% url 'home' %}" role="button" aria-haspopup="true" aria-expanded="false">ESTUDIANTE</a>
                         <div class="dropdown-menu">
-                        <a class="dropdown-item" href="{% url 'consulta' %}">CONSULTA_PROFESORES</a>
                         <a class="dropdown-item" href="{% url 'consulta_estudiante' %}">CONSULTA_ESTUDIANTE</a>
+                        <a class="dropdown-item" href="{% url 'consulta_estudiante_mat_curso' %}">CONSULTA_CURSO-MATERIA-ESTUDIANTE</a>
+                        </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="{% url 'home' %}" role="button" aria-haspopup="true" aria-expanded="false">MATERIA</a>
+                        <div class="dropdown-menu">
                         <a class="dropdown-item" href="{% url 'consulta_materia' %}">CONSULTA_MATERIA</a>
                         <a class="dropdown-item" href="{% url 'consulta_nota' %}">CONSULTA_NOTAS</a>
-                        <a class="dropdown-item" href="{% url 'consulta_cursodocente' %}">CONSULTA_PROFESORES-CURSOS</a>
-                        <a class="dropdown-item" href="{% url 'consulta_estudiante_doc_mat' %}">CONSULTA_PROFESORES-ESTUDIANTES-MATERIA</a>
-                        <a class="dropdown-item" href="{% url 'consulta_estudiante_mat_curso' %}">CONSULTA_ESTUDIANTE-MATERIA-CURSO</a>
-                        <a class="dropdown-item" href="{% url 'consulta_curso' %}">CONSULTA_CURSO</a>
-                        <a class="dropdown-item" href="{% url 'consulta_usuario' %}">CONSULTA_USUARIO</a>
-                        <a class="dropdown-item" href="{% url 'consulta_grupo' %}">CONSULTA_GRUPO</a>
+                        </div>
+                </li><li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="{% url 'home' %}" role="button" aria-haspopup="true" aria-expanded="false">CURSOS</a>
+                        <div class="dropdown-menu">
+                         <a class="dropdown-item" href="{% url 'consulta_curso' %}">CONSULTA_CURSO</a>
                         </div>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="{% url 'home' %}" role="button" aria-haspopup="true" aria-expanded="false">CONTACTO</a>
+                </li><li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="{% url 'home' %}" role="button" aria-haspopup="true" aria-expanded="false">USUARIOS</a>
                         <div class="dropdown-menu">
-                        <a class="dropdown-item" href="{% url 'correo' %}">ESCRIBENOS</a>
+                         <a class="dropdown-item" href="{% url 'consulta_usuario' %}">CONSULTA_USUARIO</a>
+                         <a class="dropdown-item" href="{% url 'consulta_grupo' %}">CONSULTA_GRUPO</a>
                         </div>
                 </li>
                 <li class="nav-item">

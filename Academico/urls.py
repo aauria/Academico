@@ -22,7 +22,7 @@ from core import views
 
 urlpatterns = [
     path('', login.LoginView.as_view(template_name='login2.html'),name='login'),
-    path('logout', login.LogoutView.as_view(template_name='login2.html'), name='salir'),
+    path('', login.LogoutView.as_view(template_name='login2.html'), name='salir'),
     path('estudiante/',include('estudiante.urls')),
     url('nota/', include('nota.urls')),
     url('materia/', include('materia.urls')),
@@ -30,6 +30,7 @@ urlpatterns = [
     url('curso/', include('curso.urls')),
     path('inicio/', views.home , name="home"),
     path('correo/', views.correo , name="correo"),
+    path('exportardocente/', views.exportardocente, name='exportardocente'),
     path('formulario/', views.crear_docente.as_view(), name="formulario"),
     path('consulta/', views.lista_docente.as_view(), name="consulta"),
     path('editar_docente/<int:pk>', views.update_docente.as_view(), name="editar"),

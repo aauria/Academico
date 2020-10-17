@@ -8,5 +8,6 @@ urlpatterns = [
     path('consulta_curso/', views.lista_curso.as_view(), name="consulta_curso"),
     path('editar_curso/<int:pk>', views.update_curso.as_view(), name="editar_curso"),
     path('eliminar_curso/<int:pk>', views.delete_curso.as_view(), name="eliminar_curso"),
+    path('exportarcurso/', views.exportarcurso, name='exportarcurso'),
     path('admin/', admin.site.urls),
 ]
